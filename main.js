@@ -10,18 +10,35 @@ function check(){
     else emptylist.style="display:none";
 }
 function markdone(ele){
-    var todotxt =ele.parentElement.childNodes[1]
+    var todotxt =ele.parentElement.childNodes[2]
     todotxt.classList.add("done");
     todotxt.classList.remove("progress");
 }
 function markprogress(ele){
-    var todotxt =ele.parentElement.childNodes[1]
+    var todotxt =ele.parentElement.childNodes[2]
     todotxt.classList.add("progress");
     todotxt.classList.remove("add");
 }
 function deletetodo(ele){
     ele.parentElement.remove()
     check()
+}
+function editmode(ele){
+    var nodes=ele.childNodes
+    nodes[0].style="display:unset";
+    nodes[1].style="display:none";
+    nodes[2].style="display:none";
+    nodes[3].style="display:none";
+    nodes[4].style="display:none";
+}
+function update(ele){
+    var nodes=ele.parentElement.parentElement.childNodes
+    nodes[0].style="display:none";
+    nodes[2].innerHTML=nodes[0].childNodes[0].value;
+    nodes[1].style="display:unset";
+    nodes[2].style="display:unset";
+    nodes[3].style="display:unset";
+    nodes[4].style="display:unset";
 }
 function addtodo(){
     var textval=document.getElementById("todotxt").value;
@@ -30,8 +47,9 @@ function addtodo(){
     if(duedate!="") textval=textval+" due at "+duedate
     const newtodo = document.createElement('div')
     newtodo.className='todo'
-
-    newtodo.innerHTML="<button onclick='markdone(this)' class='done' title='Done'>&#10003</button>"
+    newtodo.setAttribute('onDblClick',"editmode(this)")
+    newtodo.innerHTML="<div class='updatebox' title='Update'><input class='updatedtxt' value='"+textval+"'></input><button class='done' onclick='update(this)'>&#10003</button></div>"
+    newtodo.innerHTML+="<button onclick='markdone(this)' class='done' title='Done'>&#10003</button>"
     const content = document.createTextNode(textval);
     const text=document.createElement('div')
     text.className='txt'
