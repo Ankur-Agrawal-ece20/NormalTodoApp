@@ -25,7 +25,7 @@ function deletetodo(ele){
 }
 function editmode(ele){
     var nodes=ele.childNodes
-    nodes[0].style="display:unset";
+    nodes[0].style="display:grid";
     nodes[1].style="display:none";
     nodes[2].style="display:none";
     nodes[3].style="display:none";
