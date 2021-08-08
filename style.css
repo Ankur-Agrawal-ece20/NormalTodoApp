@@ -150,10 +150,10 @@ body {
 }
 .updatebox{
     grid-column: 1/span 4;
-    display:none;
+    display: none;
+    grid-template-columns: auto max-content;
 }
 .updatedtxt{
     border: 2px solid black;
     font-size: 15px;
-    width:94%;
 }
