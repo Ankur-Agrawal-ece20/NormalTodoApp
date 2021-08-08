@@ -91,17 +91,18 @@ body {
     min-height: 60px;
 }
 @media screen and (max-width: 550px) {
-    #info div span{
-        display: none;
+    #title{
+        font-size: 15vw;
     }
-    #info div:after{
-        content:"Scroll for complete text";
+    #content{
+        font-size: 5vw;
     }
     #mainbox{
         width: 90%;
     }
     .txt{
-        overflow:scroll;
+        float: left;
+        overflow-x:scroll;
     }
 }
 .todo{
@@ -138,7 +139,7 @@ body {
     font-size: 21px;
     margin: 0px 2px 0px 2px;
     font-style: oblique;
-    height: auto;
+    height: 25px;
 }
 #emptylist{
     position: absolute;
@@ -146,4 +147,13 @@ body {
     text-align: center;
     color: gray;
     width: inherit;
+}
+.updatebox{
+    grid-column: 1/span 4;
+    display:none;
+}
+.updatedtxt{
+    border: 2px solid black;
+    font-size: 15px;
+    width:94%;
 }
