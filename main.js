@@ -31,15 +31,15 @@ function addtodo(){
     const newtodo = document.createElement('div')
     newtodo.className='todo'
 
-    newtodo.innerHTML="<button onclick='markdone(this)' class='done'>&#10003</button>"
+    newtodo.innerHTML="<button onclick='markdone(this)' class='done' title='Done'>&#10003</button>"
     const content = document.createTextNode(textval);
     const text=document.createElement('div')
     text.className='txt'
     text.appendChild(content)
     newtodo.appendChild(text)
     
-    newtodo.innerHTML+="<button onclick='markprogress(this)' class='progress'>&#8473;</button>"
-    newtodo.innerHTML+="<button onclick='deletetodo(this)' class='delete'>&#9747;</button>"
+    newtodo.innerHTML+="<button onclick='markprogress(this)' class='progress' title='Progress'>&#8473;</button>"
+    newtodo.innerHTML+="<button onclick='deletetodo(this)' class='delete'  title='Delete'>&#9747;</button>"
     todolist.appendChild(newtodo)
     check()
 }
